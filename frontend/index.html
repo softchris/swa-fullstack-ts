@@ -6,10 +6,19 @@
   </head>
   <body>
     my vanilla app with TS backend
+    <h1 id="title"></h1>
     <script>
+      function setTitle(title) {
+        var elem = document.getElementById("title");
+        elem.innerHTML = title;
+      }
+
       fetch("api/Get")
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => { 
+        console.log(data);
+        setTitle(data.message);
+      })
     </script>
   </body>
 </html>
